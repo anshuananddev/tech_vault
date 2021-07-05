@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/profileassets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Profile</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light nav">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="/"><img src="/profileassets/images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>
+                        <form class="tab" action="/me/search">
+                            <input type="text" placeholder="Search.." name="topic" required>
+                            <button type="submit" class="serchbtn">Enter</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" href="/me/addproject">Add Project</a>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" aria-current="page" href="/me/myproject">Projects</a>
+                    </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/me/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-profile mx-auto my-3">
+        {{#if src}}
+        <div class="img-section"><img src={{src}} class="profile-img"></div>
+        {{else}}
+        <div class="img-section"><img src="/profileassets/images/personicon.png" class="profile-img"></div>
+        {{/if}}
+        <button style="margin-left : 100px ; background : rgb(247, 48, 48)" class="delete" onclick="window.location.href='/me/deleteme'" >Delete Me</button>
+        <div class="profile-details">
+            <form action="/me/update" method="POST" enctype="multipart/form-data" >
+                <div class="about">
+                    <div class="disp_name">
+                        <p>Name</p><input type="text" class="holder" name="name" value={{[name]}}>
+                    </div>
+                    <div class="image">
+                        <label for="img">Profile image:</label>
+                        <input type="file" class="pt-3 text-muted" id="img" name="avatar" accept="image/*">
+                    </div>
+                    <div class="details">
+                        <p>About Yourself</p>
+                        <textarea rows="10" cols="83" name="about" >{{[about]}}</textarea>
+                    </div>
+                    <div class="interest">
+                        <p>Your Area Of Interest</p>
+                        <input type="checkbox" name="aointerest" value="Designer"  {{#if Designer}} checked {{/if}}> Designer <br>
+                        <input type="checkbox" name="aointerest" value="Developer"  {{#if Developer}} checked {{/if}}> Developer <br>
+                        <input type="checkbox" name="aointerest" value="Project Manager"  {{#if [Project Manager] }} checked {{/if}}> Project Manager <br>
+                        <input type="checkbox" name="aointerest" value="Sales"  {{#if Sales}} checked {{/if}}> Sales <br>
+                    </div>
+                    <div class="profession">
+                        <p>Are you student or professional</p>
+                        <input type="radio" name="type" value="Student" class="hide" {{#if Student}} checked {{/if}}> Student <br>
+                        <input type="radio" name="type" value="Professional" class="show" {{#if Professional}} checked {{/if}}> Professional <br>
+                    </div>
+                    <div class="prof">
+                        <div class="exp">
+                            <p>How much of experience do you have</p>
+                            <input type="text" name="exp" value={{exp}}>
+                        </div>
+                        <div class="expertise">
+                            <p>What is your Expertise</p>
+                            <input type="checkbox" name="expertise" value="Java" {{#if Java}} checked {{/if}}> Java
+                            <input type="checkbox" name="expertise" value="React" {{#if React}} checked {{/if}}> React
+                            <input type="checkbox" name="expertise" value="Backend" {{#if Backend}} checked {{/if}}> Backend
+                        </div>
+                        <div class="role">
+                            <p>Mention your role</p><input type="text" name="role" placeholder="Add role"
+                                value={{[role]}}>
+                        </div>
+                    </div>
+                    <button class="save">Save</button>
+                    
+            </form>
+            
+        </div>
+    </div>
+    </div>
+    
+    <!-- ** Footer Start ** -->
+    <footer class="footer p-3">
+        <div class="text-center">
+            <p class="copyright">Copyright &copy; Tech Vault</p>
+        </div>
+    </footer>
+
+    <script src="/profileassets/profile.js"></script>
+    {{>alert}}
+</body>
+
+</html>

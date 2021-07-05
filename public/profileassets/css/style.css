@@ -1,0 +1,210 @@
+    /*navbar and footer*/
+    
+    body {
+        background: hsla(238, 100%, 71%, 1);
+        background: linear-gradient(90deg, hsla(238, 100%, 71%, 0.3) 0%, hsla(295, 100%, 84%, 1) 100%);
+        background: -moz-linear-gradient(90deg, hsla(238, 100%, 71%, 0.3) 0%, hsla(295, 100%, 84%, 1) 100%);
+        background: -webkit-linear-gradient(90deg, hsla(238, 100%, 71%, 0.3) 0%, hsla(295, 100%, 84%, 1) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#696eff", endColorstr="#f8acff", GradientType=1);
+    }
+    
+    .nav {
+        background: linear-gradient( 45deg, #a759d1 0%, #8261ee 60%);
+    }
+    
+    .tab {
+        padding-top: 5px;
+    }
+    
+    .serchbtn {
+        background-color: #a759d1 !important;
+        color: white !important;
+        border-radius: 5px !important;
+    }
+    
+    .search {
+        background-color: white;
+        border-radius: 10px;
+        margin: 10px;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        padding: 15px;
+    }
+    
+    footer {
+        /* position: absolute; */
+        top: 90%;
+        width: 100%;
+        background: linear-gradient( 45deg, #a759d1 0%, #8261ee 60%);
+        color: white;
+    }
+    /*profile section css*/
+    
+    .main-profile {
+        display: grid;
+        width: 90%;
+        margin: auto;
+        grid-template-columns: 1fr 6fr;
+        column-gap: 2.5vh;
+    }
+    
+    .profile-img {
+        top: 222px;
+        left: 140px;
+        width: 260px;
+        height: 209px;
+        box-shadow: 0px 3px 6px #00000029;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+    }
+    
+    .img-section {
+        opacity: 1;
+    }
+    
+    .profile-details {
+        top: 222px;
+        left: 416px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        opacity: 1;
+    }
+    
+    .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /*grid-template-rows: 0.5fr 2fr 1.5fr 1fr 1fr;*/
+        gap: 1vh 1vh;
+        grid-template-areas: "disp_name . image" "details details ." "interest . ." "profession . ." "prof prof prof";
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 1.7vh;
+        color: rgb(105, 104, 104);
+    }
+    
+    .disp_name {
+        grid-area: disp_name;
+        font-weight: bold;
+    }
+    
+    .save {
+        grid-area: save;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        border-radius: 20px;
+        padding: 12px 20px;
+        background-color: #8261ee;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 0.25px;
+    }
+    .delete {
+        grid-area: delete;
+        margin-top: -60px;
+        height: 50px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: 13px;
+        border-radius: 25px;
+        padding: 10px 20px;
+        background-color: #8261ee;
+        text-transform: uppercase;
+        color: #fff;
+        letter-spacing: 0.25px;
+    }
+    
+    .holder {
+        width: 70%;
+        height: 40%;
+        border: none;
+        padding-left: 15px;
+        background-color: #F7F8FF;
+        font-weight: bold;
+    }
+    
+    .image {
+        grid-area: image;
+        font-weight: bold;
+    }
+    
+    .details {
+        grid-area: details;
+        font-weight: bold;
+    }
+    
+    .details textarea {
+        border: none;
+        background-color: #F7F8FF;
+    }
+    
+    .interest {
+        grid-area: interest;
+        font-weight: bold;
+        color: black;
+    }
+    
+    .interest p {
+        color: rgb(105, 104, 104);
+        ;
+    }
+    
+    .profession {
+        grid-area: profession;
+        font-weight: bold;
+        color: black;
+    }
+    
+    .profession p {
+        color: rgb(105, 104, 104);
+        ;
+    }
+    
+    .prof {
+        grid-area: prof;
+        padding: 5px;
+        box-shadow: 0px 3px 6px #00000029;
+        display: none;
+        font-weight: bold;
+    }
+    
+    .prof input {
+        padding: 5px;
+        border: none;
+        padding-left: 15px;
+        border-color: #F7F8FF;
+        font-weight: bold;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .main-profile {
+            display: block;
+        }
+        .about {
+            display: block;
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgb(172, 171, 171);
+            box-shadow: none;
+        }
+        .img-section {
+            display: flex;
+            justify-content: center;
+        }
+        .profile-img {
+            width: 30%;
+            height: 10%;
+        }
+        .holder {
+            width: 100%;
+            padding: 10px;
+        }
+        .details textarea {
+            width: 100%;
+        }
+        .save {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    }

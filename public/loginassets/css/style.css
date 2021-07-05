@@ -1,0 +1,59 @@
+body {
+    background: hsla(238, 100%, 71%, 1);
+    background: linear-gradient(90deg, hsla(238, 100%, 71%, 0.3) 0%, hsla(295, 100%, 84%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(238, 100%, 71%, 0.3) 0%, hsla(295, 100%, 84%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(238, 100%, 71%, 0.3) 0%, hsla(295, 100%, 84%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#696eff", endColorstr="#f8acff", GradientType=1);
+}
+
+.nav {
+    background: linear-gradient( 45deg, #a759d1 0%, #8261ee 60%);
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px !important;
+    margin-top: 10px;
+}
+
+.form-group {
+    background-color: white;
+    opacity: .9;
+    padding: 25px 10px 10px 15px;
+    margin-top: 23%;
+    margin-bottom: 10px;
+    margin-left: 80px;
+    margin-right: 10px;
+    width: 75%;
+    height: 50%;
+}
+
+.loginBtn,
+.serchbtn {
+    background-color: #a759d1 !important;
+    color: white !important;
+    border-radius: 5px !important;
+}
+
+.tab {
+    padding-top: 5px;
+}
+
+.search {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    padding: 15px;
+}
+
+footer {
+    /* position: absolute; */
+    top: 90%;
+    width: 100%;
+    background: linear-gradient( 45deg, #a759d1 0%, #8261ee 60%);
+    color: white;
+}

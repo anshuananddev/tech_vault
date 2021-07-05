@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/viewassets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>View</title>
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light nav">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#"><img src="/viewassets/images/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>
+                        <form class="tab" action="/me/search">
+                            <input type="text" placeholder="Search.." name="topic" required>
+                            <button type="submit" class="serchbtn">Enter</button>
+                          </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light"  href="/me/addproject">Add Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active"  href="#">My Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/me/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/me/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <form class="tab not">
+        <input class="univ" type="text" placeholder="Search in your projects..." name="ownsearch">
+        <button type="submit" class="serchbtn">Enter</button>
+      </form>
+
+    {{#if search}}
+    <div class="search">
+        <legend>Search results for : "<span>{{topic}}</span>"</legend> {{/if}}
+        {{#each resultprojects}}
+        <div class=item>
+            <div id="HASH">
+                <span id="title">Title: {{this.title}}</span>
+                <span>No. of Downloads : <span>{{this.nodownloads}}</span></span>
+            </div>                
+                <span>Created on : {{this.createdon}}</span>
+                
+                               
+            <div id="HASH">
+                <p><span>Tags : </span> {{this.tags}}</p>
+                <div class="icon">
+                    <a href="/me/view/{{this.pid}}"><i class="fa fa-eye text-dark fw-bold" aria-hidden="true"></i></a>&nbsp&nbsp&nbsp&nbsp
+                    <a href="/me/download/{{this.pid}}"><i class="fa fa-download text-dark " aria-hidden="true"></i></a>&nbsp&nbsp&nbsp&nbsp
+                    <a id="deleteproject" href="/me/deleteproject/{{this.pid}}"> <i class="fa fa-trash text-dark fw-bold" aria-hidden="true"></i></a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        {{/each}}
+
+
+    </div>
+    
+
+    <!-- ***** Footer Start ***** -->
+    <footer class="footer p-3">
+        <div class="text-center">
+            <p class="copyright">Copyright &copy; Tech Vault</p>
+        </div>
+    </footer>
+    {{>alert}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+
+</html>

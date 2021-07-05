@@ -1,0 +1,436 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<style>
+    .alert {
+        margin-top : 70px ;
+        background: #ffdb9b;
+        padding: 10px 50px ;
+        min-width: 420px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        border-radius: 4px;
+        border-left: 8px solid #ffa502;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .alert.showAlert {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .alert.show {
+        animation: show_slide 1s ease forwards;
+    }
+
+    @keyframes show_slide {
+        0% {
+            transform: translateX(100%);
+        }
+
+        40% {
+            transform: translateX(-10%);
+        }
+
+        80% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-10px);
+        }
+    }
+
+    .alert.hide {
+        animation: hide_slide 1s ease forwards;
+    }
+
+    @keyframes hide_slide {
+        0% {
+            transform: translateX(-10px);
+        }
+
+        40% {
+            transform: translateX(0%);
+        }
+
+        80% {
+            transform: translateX(-10%);
+        }
+
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .fa-exclamation-triangle {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ce8500;
+        font-size: 30px;
+    }
+
+    .alert .msg {
+        padding: 0 20px;
+        font-size: 18px;
+        color: #ce8500;
+    }
+
+    .alert .close-btn {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        /*background: #ffd080;*/
+        padding: 20px 18px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background: #ffc766;
+    }
+
+    .close-btn .fas {
+        color: #ce8500;
+        font-size: 22px;
+        line-height: 40px;
+    }
+
+
+    /* {{!-- success alert --}}*/
+    .success_alert {
+        margin-top : 100px ;
+        background: #86fa77;
+        padding: 10px 50px ;
+        min-width: 420px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        border-radius: 4px;
+        border-left: 8px solid #055802;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .success_alert.showAlert {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .success_alert.show {
+        animation: show_slide 1s ease forwards;
+    }
+
+    
+
+    .success_alert.hide {
+        animation: hide_slide 1s ease forwards;
+    }
+
+    
+
+    .fa-check-square {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #4ddb54;
+        font-size: 30px;
+    }
+
+    .success_alert .success_msg {
+        padding: 0 20px;
+        font-size: 18px;
+        color: #01a301;
+    }
+
+    .success_alert .success_close-btn {
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #41d31d;
+        padding: 20px 18px;
+        cursor: pointer;
+    }
+
+    .success_close-btn:hover {
+        background: #42fa4b;
+    }
+
+    .success_close-btn .fas {
+        color: #1a4b0b;
+        font-size: 22px;
+        line-height: 40px;
+    }
+
+
+    
+    .error_alert {
+            margin-top: 70px;
+            background: #f78989;
+            padding: 10px 50px;
+            min-width: 420px;
+            position: absolute;
+            right: 0;
+            top: 10px;
+            border-radius: 4px;
+            border-left: 8px solid #a00303;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .error_alert.showAlert {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .error_alert.show {
+            animation: show_slide 1s ease forwards;
+        }
+        
+       
+        
+        .error_alert.hide {
+            animation: hide_slide 1s ease forwards;
+        }
+        
+        
+        .fa-exclamation-circle {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #f10b0b;
+            font-size: 30px;
+        }
+        
+        .error_alert .error_msg {
+            padding: 0 20px;
+            font-size: 18px;
+            color: #d30808;
+        }
+        
+        .error_alert .error_close-btn {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #f55353;
+            padding: 20px 18px;
+            cursor: pointer;
+        }
+        
+        .error_close-btn:hover {
+            background: #fc5050;
+        }
+        
+        .error_close-btn .fas {
+            color: #fd0606;
+            font-size: 22px;
+            line-height: 40px;
+        }
+
+
+
+
+
+        .infoalert {
+            margin-top: 70px;
+            background: #59d8ff;
+            padding: 10px 50px;
+            min-width: 420px;
+            position: absolute;
+            right: 0;
+            top: 10px;
+            border-radius: 4px;
+            border-left: 8px solid #0366a0;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .infoalert.showAlert {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .infoalert.show {
+            animation: show_slide 1s ease forwards;
+        }
+        
+       
+        
+        .infoalert.hide {
+            animation: hide_slide 1s ease forwards;
+        }
+        
+        
+        .fa-info {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color:  #1a5d86;
+            font-size: 25px;
+        }
+        
+        .infoalert .infomsg {
+            padding: 0 20px;
+            font-size: 18px;
+            color:  #0b3c58;
+        }
+        
+        .infoalert .infoclose-btn {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #59d8ff;
+            padding: 20px 18px;
+            cursor: pointer;
+        }
+        
+        .infoclose-btn:hover {
+            background: #36a9cc;
+        }
+        
+        .infoclose-btn .infofas {
+            color: #0366a0;
+            font-size: 22px;
+            line-height: 40px;
+        }
+
+</style>
+
+
+
+
+{{!-- Template usage --}}
+{{#if warnings}}
+<div class="alert hide">
+    <span class="fas fa-exclamation-triangle"></span>
+    {{#each warnings}}
+    <span class="msg">Warning : {{this}}</span><br>
+    {{/each}}
+    <div class="close-btn">
+        <span class="fas">&times;</span>
+    </div>
+</div>
+{{/if}}
+
+{{#if success}}
+<div class="success_alert hide">
+    <span class="fas fa-check-square"></span>
+    
+    <span class="success_msg">{{success}}</span>
+    
+    <div class="success_close-btn">
+        <span class="fas">&times;
+        </span>
+    </div>
+</div>
+{{/if}}
+
+{{#if error}}
+<div class="error_alert hide">
+    <span class="fas fa-exclamation-circle"></span>
+    
+    <span class="error_msg">{{error}}</span>
+    
+    <div class="error_close-btn">
+        <span class="fas">&times;
+        </span>
+    </div>
+</div>
+{{/if}}
+
+{{#if info}}
+<div class="infoalert hide">
+    <span class="fas fa-info"></span>
+    
+    <span class="infomsg">{{info}}</span>
+    
+    <div class="infoclose-btn">
+        <span class="fas">&times;
+        </span>
+    </div>
+</div>
+{{/if}}
+
+
+
+
+
+
+
+{{!-- Scripts for hiding and showing alert --}}
+<script>
+    
+        $('.alert').addClass("show");
+        $('.alert').removeClass("hide");
+        $('.alert').addClass("showAlert");
+        setTimeout(function () {
+            $('.alert').removeClass("show");
+            $('.alert').addClass("hide");
+        }, 5000);
+    
+    $('.close-btn').click(function () {
+        $('.alert').removeClass("show");
+        $('.alert').addClass("hide");
+    });
+</script>
+
+<script>
+    
+        $('.error_alert').addClass("show");
+        $('.error_alert').removeClass("hide");
+        $('.error_alert').addClass("showAlert");
+        setTimeout(function () {
+            $('.error_alert').removeClass("show");
+            $('.error_alert').addClass("hide");
+        }, 5000);
+    
+    $('.error_close-btn').click(function () {
+        $('.error_alert').removeClass("show");
+        $('.error_alert').addClass("hide");
+    });
+</script>
+
+<script>
+    
+        $('.success_alert').addClass("show");
+        $('.success_alert').removeClass("hide");
+        $('.success_alert').addClass("showAlert");
+        setTimeout(function () {
+            $('.success_alert').removeClass("show");
+            $('.success_alert').addClass("hide");
+        }, 5000);
+    
+    $('.success_close-btn').click(function () {
+        $('.success_alert').removeClass("show");
+        $('.success_alert').addClass("hide");
+    });
+</script>
+
+<script>
+    
+        $('.infoalert').addClass("show");
+        $('.infoalert').removeClass("hide");
+        $('.infoalert').addClass("showAlert");
+        setTimeout(function () {
+            $('.infoalert').removeClass("show");
+            $('.infoalert').addClass("hide");
+        }, 5000);
+    
+    $('.infoclose-btn').click(function () {
+        $('.infoalert').removeClass("show");
+        $('.infoalert').addClass("hide");
+    });
+</script>

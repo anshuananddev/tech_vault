@@ -1,0 +1,106 @@
+
+* {
+  box-sizing: border-box;
+}
+#header-nav{
+background-color: grey;
+border-radius: 0;
+border: 0;
+}
+
+.navbar-brand{
+padding-top:25px;
+padding-right: 5px;
+}
+
+#nav-list{
+ text-align: center;
+ 
+background-color:#ffffff;
+border:1px solid black;
+
+}
+#nav-list a
+{
+border:1px solid black;
+color:#000000;
+}
+#nav-list a:hover
+{
+background-color:grey;
+}
+
+.navbar-brand h1 {
+	
+	font-family: Georgia serif;
+	font-size:2em;
+	color: #000000;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	line-height: .75;
+	font-weight: bold;
+}
+.navbar-brand button.navbar-toggle, .navbar-brand .icon-bar {
+border:1px solid #000000;
+}
+
+p {
+	padding: 15px 5px 0px 5px;
+	font-family: Georgia sans-serif;
+	font-size: 16px;
+	position: relative;
+}
+
+.nin { 
+	background-color: rgb(150, 150, 150);
+   	margin-top: 20px;
+   	margin-right: 5px; 
+   	padding: 1px;
+   	text-align: justify;
+   	position: relative;
+ }
+
+.inner1 , .inner2 , .inner3 {
+	font-size: 20px;
+	width: 100%;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	color:#000000;
+	
+}
+
+.outer {
+	max-width: 100%;
+}
+
+/* Desktop PC view */
+
+@media (min-width: 992px) {
+ 
+  .col-lg-4 {
+    width: 33.33%;
+    float: left;
+	}
+}
+
+/* Tablet PC view */
+@media (min-width: 768px) and (max-width: 991px) {
+ 
+  .col-md-6 {
+    width: 50%;
+    float: left;
+   }
+  .col-md-12 {
+    width: 100%;
+    float: left;
+  }
+}
+/* Cell phone view */
+@media (max-width: 767px)  {
+  
+  .col-sx-12 {
+  	float: left;
+    width: 100%;
+  }
+}
