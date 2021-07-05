@@ -1,4 +1,4 @@
-const { body, validationResult } = require('express-validator')
+const { body, validationResult, Result } = require('express-validator')
 const mongoose = require('mongoose')
 const User = require('../models/userModel')
 const flash = require('connect-flash')
@@ -6,6 +6,7 @@ const sharp = require('sharp')
 const Project = require('../models/projectModel')
 const { uploadAvatar } = require('../config/upload')
 const gridfsStream = require('gridfs-stream')
+const multer = require('multer')
 
 
 module.exports = {
@@ -317,7 +318,8 @@ module.exports = {
             })
 
             //console.log(readstream)
-            res.set("Content-Disposition", "attachment ; filename=Project")
+            res.set('Content-Type' , "application/pdf")
+            res.set("Content-Disposition", "attachment ; filename=Project.pdf")
             readstream.pipe(res)
             //console.log(mongoose.Types.ObjectId(req.user._id )== mongoose.Types.ObjectId(project.owner))
             if ((req.user._id).toString()!= (project.owner).toString()) {
@@ -378,12 +380,13 @@ module.exports = {
                 projects = await Project.find({ title: { $regex: regex, $options: 'gi' }, owner: { $ne: req.user._id } }).sort({ createdAt: 1 })
             }
 
-            result = []
+            var result = []
 
             // console.log(projects)
             if (projects.length !== 0) {
+                
                 projects.forEach(async (project) => {
-                    searchresult = {}
+                    var searchresult = {}
                     searchresult.pid = (project._id).toString()
                     searchresult.title = project.title
                     var cat = project.createdAt
@@ -391,9 +394,14 @@ module.exports = {
                     let user = await User.findById(project.owner)
                     searchresult.name = user.name
                     searchresult.tags = project.tags
-
+ 
+                    //console.log("searchresult" , searchresult)
                     result.push(searchresult)
+                    searchresult = {}
                 })
+
+                //console.log(result)
+                //console.log(projects)
 
                 res.render('search', {
                     searchresults: result,

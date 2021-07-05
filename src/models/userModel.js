@@ -82,13 +82,13 @@ const userSchema = new mongoose.Schema({
 
 userSchema.statics.findByCredentials = async function(email , password) {
     const user = await User.findOne({ email })
-    console.log("Inside findBYcredentials")
+    
 
     if(!user) {
         throw new Error("Invalid Credentials")
     }
 
-    console.log("got user")
+    
 
     const userPassword = user.password
     const isValid = await bcrypt.compare(password , userPassword)
@@ -98,7 +98,7 @@ userSchema.statics.findByCredentials = async function(email , password) {
         
     }
 
-    console.log("valid user and sending user")
+    
     return user
 
 }

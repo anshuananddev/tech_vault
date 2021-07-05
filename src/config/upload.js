@@ -19,7 +19,14 @@ const storage = new gridfsStorage( {
 })
 
 upload = multer({
-    storage 
+    storage ,
+    fileFilter(req , file , cb) {
+        if(!file.originalname.match(/\.(pdf)$/)){
+            return cb(new Error('Please upload a pdf file'))
+        }
+
+        cb(undefined , true)
+    }
 })
 
 const uploadAvatar = multer({
